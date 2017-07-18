@@ -1,0 +1,127 @@
+﻿
+@{
+	ViewBag.Title = "Category Page";
+
+
+}
+
+
+
+<h2>Categories and Products</h2>
+
+<div class="row">
+	<div class="col-md-12 col-centered">
+		<div id="categories" class="btn-group btn-group-lg">
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="pull-right">
+		<label> Per Page: </label>
+		<select id="eperPage">
+			<option value="10">10</option>
+			<option value="20">20</option>
+			<option value="30">30</option>
+		</select>
+	</div>
+</div>
+
+<div id="divImagesPanel" class="row">
+
+</div>
+
+
+
+
+@section Scripts{
+	<script type="text/javascript">
+
+		//http://thecatapi.com/api/categories/list
+		//http://localhost:49416/api/EuroOffApi/GetCatXml
+		//var scatUrl = "http://thecatapi.com/api/categories/list";
+		//var scatUrl = "/api/EuroOffApi/getcatxml";
+		var scatUrl = '@(ViewBag.CatUrl)';
+
+		$(document).ready(function () {
+			getCatXml();
+        });
+
+		$(document).ready(function () {
+
+			$('#categories').on('click', '#category', function () {
+				var scatClicked = $(this).text();
+				var iperPage = $('#eperPage').val();
+				if (iperPage == null)
+					iperPage = 10;
+				//var simagesApiUrl = "http://thecatapi.com/api/images/get?format=xml&amp;results_per_page=" + iperPage + "&amp;category=" + scatClicked
+				//var simagesApiUrl = "/api/EuroOffApi/getimagesxml/" + scatClicked + "/" + iperPage;
+				var simagesApiUrl = '@(ViewBag.CatImagesUrl)' + "/" + scatClicked + "/" + iperPage;
+				//alert(imagesurl);
+				$('.divImages').remove();
+
+				getCatImageXml(simagesApiUrl);
+
+			});
+        });
+
+        function getCatXml() {
+        	$.ajax({
+        		type: "GET",
+        		url: scatUrl,
+        		dataType: "xml",
+        		success: function (xml) {
+
+        			$(xml).find('category').each(function () {
+
+        				$("#categories").append('<button type="button" id="category" class="btn btn-defaul">' + $(this).find("name").text() + '</button>');
+
+        			});
+        		}
+        	});
+
+        }
+
+        function getCatImageXml(imagesApiUrl) {
+
+        		$.ajax({
+        			type: "GET",
+        			url: imagesApiUrl,
+        			dataType: "xml",
+        			success: function (xml) {
+
+        				//alert();
+        				var simageUrl = $(this).find("url").text();
+
+        				$(xml).find('image').each(function () {
+        					var simageUrl = $(this).find("url").text();
+        					//var eimageUrl = "<img src=\"" + simageUrl + "\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\">";
+        					//$("#divImagesPanel").append('<div class="divImages col-md-4">' + eimageUrl + '</div>');
+        					var eimageUrl = "<div class=\"divImages col-xs-6 col-md-4\">"
+                                                + "<div class=\"thumbnail\">"
+                                                    + "<a href=\"" + simageUrl + "\" target=\"_blank\">"
+                                                        //+ "<img class=\"imageCarouselImg\" src=\"" + simageUrl + "\" style=\"width:100%\">"
+                                                        + "<img class=\"img-responsive\" src=\"" + simageUrl + "\">" // width=\"304\" height=\"236\">"
+                                                        + "<div class=\"caption\">"
+                                                        + "</div>"
+                                                    + "</a>"
+                                                + "</div>"
+                                            + "</div>";
+
+        					//append now
+        					$("#divImagesPanel").append(eimageUrl);
+
+
+        				});
+        			}
+        		});
+        }
+
+
+	</script>
+
+}
+
+
+
+

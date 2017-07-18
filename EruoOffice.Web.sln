@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EruoOffice.Web", "EruoOffice.Web\EruoOffice.Web.csproj", "{5D8CBB66-93C5-49A1-9F2D-79F341C3EFDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EruoOffice.Web.Tests", "EruoOffice.Web.Tests\EruoOffice.Web.Tests.csproj", "{54F79CB3-16E4-47D4-B746-E95712E72169}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D8CBB66-93C5-49A1-9F2D-79F341C3EFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8CBB66-93C5-49A1-9F2D-79F341C3EFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8CBB66-93C5-49A1-9F2D-79F341C3EFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8CBB66-93C5-49A1-9F2D-79F341C3EFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F79CB3-16E4-47D4-B746-E95712E72169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F79CB3-16E4-47D4-B746-E95712E72169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F79CB3-16E4-47D4-B746-E95712E72169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F79CB3-16E4-47D4-B746-E95712E72169}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
