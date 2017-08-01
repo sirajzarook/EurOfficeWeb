@@ -212,6 +212,10 @@ namespace EruoOffice.Web.Data
 			return output;
 		}
 
+        /// <summary>
+        /// Concrete getSunglasses method
+        /// </summary>
+        /// <returns></returns>
 		public StringBuilder getSunglasses()
 		{
 
