@@ -9,7 +9,10 @@ namespace EruoOffice.Web.Data
 {
 	public class CatsDataManager
 	{
-
+        /// <summary>
+        /// Get list of category in XML
+        /// </summary>
+        /// <returns></returns>
 		public StringBuilder getCategoriesXml()
 		{
 			var output = new StringBuilder();
