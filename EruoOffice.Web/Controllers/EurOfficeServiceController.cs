@@ -16,15 +16,6 @@ namespace EruoOffice.Web.Controllers
 
 		private ICatRepository _repo;
 
-
-		public EurOfficeServiceController()
-		{
-			//StudentRepository db = new StudentRepository();
-			this._repo = new CatsRepositoryMock();
-
-		}
-
-
 		public EurOfficeServiceController(ICatRepository repository)
 		{
 			////Ninject to take over IoC
