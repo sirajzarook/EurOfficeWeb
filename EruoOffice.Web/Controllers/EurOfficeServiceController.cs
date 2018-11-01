@@ -18,14 +18,8 @@ namespace EruoOffice.Web.Controllers
 
 	public EurOfficeServiceController(ICatRepository repository)
 	{
-		////Ninject to take over IoC
-		this._repo = repository; // at this line Ninject will take over IoC (uses                                               the Registerred Service)
-		if (this._repo == null)
-		{
-			//Niject has no service registerred (i.e. specific Mock or Live) for                          IStudentRepository,
-			//now code has hard coded StudentRepository at this point
-			this._repo = new CatsRepositoryMock();
-		}
+
+		this._repo = repository; 
 	}
 
 	// GET: api/EuroOffApi
